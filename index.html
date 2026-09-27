@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>GraminSaathi AI Dashboard</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-logo">🌾</div>
+
+        <div class="brand-text">
+          <h2>GraminSaathi AI</h2>
+          <p>Rural Entrepreneurship</p>
+        </div>
+      </div>
+
+      <nav class="navigation">
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <button class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-page="search">
+          <span class="nav-icon">⌕</span>
+          <span>Search Insights</span>
+        </button>
+
+        <button class="nav-item" data-page="reports">
+          <span class="nav-icon">▣</span>
+          <span>Feasibility Reports</span>
+        </button>
+
+        <button class="nav-item" data-page="schemes">
+          <span class="nav-icon">₹</span>
+          <span>Government Schemes</span>
+        </button>
+
+        <p class="menu-title system-title">SYSTEM</p>
+
+        <button class="nav-item" data-page="settings">
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
+        </button>
+
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>Advisory Platform</strong>
+        <p>
+          Final loan approval remains with banks and government agencies.
+        </p>
+      </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <header class="topbar">
+
+        <div class="page-heading">
+          <h1 id="pageTitle">Dashboard Overview</h1>
+          <p>AI-powered business feasibility for rural entrepreneurs</p>
+        </div>
+
+        <div class="topbar-actions">
+
+          <div class="top-search">
+            <span>⌕</span>
+            <input
+              type="text"
+              id="topSearch"
+              placeholder="Search dashboard..."
+            />
+          </div>
+
+          <button class="theme-button" id="themeToggle">
+            ☾
+          </button>
+
+          <div class="user-profile">
+            <div class="avatar">RS</div>
+
+            <div>
+              <strong>Rural Startup</strong>
+              <small>Admin View</small>
+            </div>
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- Dashboard Section -->
+      <section class="page active" id="dashboard">
+
+        <!-- Hero Section -->
+        <div class="hero-grid">
+
+          <div class="hero-card card">
+
+            <div class="hero-content">
+              <span class="hero-label">SMART RURAL BUSINESS PLATFORM</span>
+
+              <h2>
+                Turn Local Potential into Bank-Ready Opportunity
+              </h2>
+
+              <p>
+                GraminSaathi AI combines hyper-local market intelligence,
+                financial calculations and government scheme matching for
+                rural entrepreneurs.
+              </p>
+
+              <div class="hero-buttons">
+                <button class="primary-button" onclick="showPage('reports')">
+                  Generate Report
+                </button>
+
+                <button class="transparent-button">
+                  Explore Insights
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-circle"></div>
+
+          </div>
+
+          <!-- Feasibility Score -->
+          <div class="score-card card">
+
+            <div>
+              <h3>Project Feasibility</h3>
+              <p class="card-description">
+                Dairy Unit, Rampur Block
+              </p>
+
+              <span class="status-badge green">
+                Medium Confidence
+              </span>
+
+              <p class="score-description">
+                Based on local market data, Census sources and business signals.
+              </p>
+            </div>
+
+            <div class="score-circle">
+              <div>
+                <strong>72%</strong>
+                <span>Feasibility</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+
+          <div class="kpi-card card searchable">
+            <div class="kpi-icon blue">👥</div>
+
+            <div>
+              <h3>1,248</h3>
+              <p>Entrepreneurs Assessed</p>
+            </div>
+          </div>
+
+          <div class="kpi-card card searchable">
+            <div class="kpi-icon green">▤</div>
+
+            <div>
+              <h3>864</h3>
+              <p>Reports Generated</p>
+            </div>
+          </div>
+
+          <div class="kpi-card card searchable">
+            <div class="kpi-icon yellow">✓</div>
+
+            <div>
+              <h3>81%</h3>
+              <p>Scheme Match Accuracy</p>
+            </div>
+          </div>
+
+          <div class="kpi-card card searchable">
+            <div class="kpi-icon purple">⌁</div>
+
+            <div>
+              <h3>36%</h3>
+              <p>Risk Reduction</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+
+          <!-- Financial Calculator -->
+          <div class="card searchable">
+
+            <div class="card-header">
+              <div>
+                <h3>Financial Structuring</h3>
+                <p class="card-description">
+                  Live what-if calculation
+                </p>
+              </div>
+
+              <span class="status-badge blue">
+                Rule-Based Engine
+              </span>
+            </div>
+
+            <div class="financial-list">
+
+              <div class="financial-row">
+                <span>Available Margin Capital</span>
+                <strong id="marginValue">₹1,00,000</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Estimated Project Cost</span>
+                <strong id="projectCost">₹10,00,000</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Loan Eligibility</span>
+                <strong id="loanValue">₹9,00,000</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Recommended Scheme</span>
+                <strong>PMEGP / MUDRA</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Interest Rate</span>
+                <strong>8.5% annually</strong>
+              </div>
+
+              <div class="financial-row highlight-row">
+                <span>Estimated Monthly EMI</span>
+                <strong id="emiValue">₹11,086</strong>
+              </div>
+
+            </div>
+
+            <div class="slider-container">
+              <input
+                type="range"
+                id="marginSlider"
+                min="50000"
+                max="300000"
+                step="10000"
+                value="100000"
+              />
+
+              <div class="slider-labels">
+                <span>Margin Capital</span>
+                <strong id="sliderText">₹1,00,000</strong>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Chart -->
+          <div class="card searchable">
+
+            <div class="card-header">
+              <div>
+                <h3>Repayment Projection</h3>
+                <p class="card-description">
+                  Quarterly loan repayment estimate
+                </p>
+              </div>
+
+              <span class="status-badge green">
+                Stable
+              </span>
+            </div>
+
+            <div class="chart-container">
+
+              <svg viewBox="0 0 500 220">
+
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#2563eb" />
+                    <stop offset="100%" stop-color="transparent" />
+                  </linearGradient>
+                </defs>
+
+                <path
+                  class="chart-area"
+                  d="M10 170
+                  C80 145, 100 160, 150 125
+                  S230 110, 270 92
+                  S350 85, 390 55
+                  S450 45, 490 28
+                  L490 210 L10 210 Z">
+                </path>
+
+                <path
+                  class="chart-line"
+                  d="M10 170
+                  C80 145, 100 160, 150 125
+                  S230 110, 270 92
+                  S350 85, 390 55
+                  S450 45, 490 28">
+                </path>
+
+              </svg>
+
+            </div>
+
+            <div class="chart-labels">
+              <span>Q1</span>
+              <span>Q2</span>
+              <span>Q3</span>
+              <span>Q4</span>
+              <span>Q5</span>
+              <span>Q6</span>
+            </div>
+
+          </div>
+
+          <!-- SWOT Analysis -->
+          <div class="card searchable">
+
+            <div class="card-header">
+              <div>
+                <h3>AI SWOT Analysis</h3>
+                <p class="card-description">
+                  Business intelligence summary
+                </p>
+              </div>
+
+              <span class="status-badge blue">
+                AI Generated
+              </span>
+            </div>
+
+            <div class="swot-grid">
+
+              <div class="swot-box strength">
+                <h4>💪 Strengths</h4>
+                <p>
+                  Strong local demand, family labor and existing dairy experience.
+                </p>
+              </div>
+
+              <div class="swot-box weakness">
+                <h4>⚠ Weaknesses</h4>
+                <p>
+                  Limited working capital and seasonal fodder availability.
+                </p>
+              </div>
+
+              <div class="swot-box opportunity">
+                <h4>🚀 Opportunities</h4>
+                <p>
+                  Growing demand from nearby homes, schools and local markets.
+                </p>
+              </div>
+
+              <div class="swot-box threat">
+                <h4>⛔ Threats</h4>
+                <p>
+                  Feed price increases, disease risk and buyer dependency.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Local Market -->
+          <div class="card searchable">
+
+            <div class="card-header">
+              <div>
+                <h3>Local Market Snapshot</h3>
+                <p class="card-description">
+                  Rampur Block, Uttar Pradesh
+                </p>
+              </div>
+
+              <span class="status-badge green">
+                Updated Today
+              </span>
+            </div>
+
+            <div class="financial-list">
+
+              <div class="financial-row">
+                <span>Estimated Consumer Base</span>
+                <strong>18,400</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Radius Covered</span>
+                <strong>5–10 km</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Competitor Density</span>
+                <strong class="warning-text">Medium</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Underserved Niche</span>
+                <strong>Fresh Milk Delivery</strong>
+              </div>
+
+              <div class="financial-row">
+                <span>Suggested Price</span>
+                <strong>₹58–₹64 / litre</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Risk Flags -->
+          <div class="card wide-card searchable">
+
+            <div class="card-header">
+              <div>
+                <h3>Risk Flags and Recommendations</h3>
+                <p class="card-description">
+                  Important factors before loan application
+                </p>
+              </div>
+
+              <span class="status-badge yellow">
+                3 Items Detected
+              </span>
+            </div>
+
+            <div class="risk-list">
+
+              <div class="risk-item high-risk">
+                <span>●</span>
+
+                <div>
+                  <strong>Supply Chain Risk</strong>
+                  <p>
+                    Fodder availability may reduce during summer months.
+                    Create a three-month fodder reserve.
+                  </p>
+                </div>
+              </div>
+
+              <div class="risk-item medium-risk">
+                <span>●</span>
+
+                <div>
+                  <strong>Seasonal Demand</strong>
+                  <p>
+                    Demand may fluctuate during local festivals and holidays.
+                  </p>
+                </div>
+              </div>
+
+              <div class="risk-item low-risk">
+                <span>●</span>
+
+                <div>
+                  <strong>Market Opportunity</strong>
+                  <p>
+                    Fresh milk delivery is underserved within the selected radius.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Search Section -->
+      <section class="page search-page" id="search">
+
+        <div class="card">
+
+          <div class="card-header">
+            <div>
+              <h3>Search Rural Business Insights</h3>
+              <p class="card-description">
+                Search schemes, markets, reports and recommendations
+              </p>
+            </div>
+          </div>
+
+          <input
+            type="text"
+            class="large-search"
+            id="insightSearch"
+            placeholder="Try: dairy scheme, PMEGP, market..."
+          />
+
+          <div id="searchResults">
+
+            <div class="search-result-card searchable">
+              <div>
+                <h3>PMEGP Loan Scheme</h3>
+                <p>
+                  Government credit-linked subsidy programme for new micro-enterprises.
+                </p>
+              </div>
+
+              <span class="status-badge green">Scheme</span>
+            </div>
+
+            <div class="search-result-card searchable">
+              <div>
+                <h3>Dairy Business Feasibility</h3>
+                <p>
+                  Analysis of demand, local competitors, capital and repayment risk.
+                </p>
+              </div>
+
+              <span class="status-badge blue">Report</span>
+            </div>
+
+            <div class="search-result-card searchable">
+              <div>
+                <h3>Fresh Milk Delivery Opportunity</h3>
+                <p>
+                  Underserved business niche detected within a 5–10 km radius.
+                </p>
+              </div>
+
+              <span class="status-badge yellow">Market</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Reports Section -->
+      <section class="page" id="reports">
+
+        <div class="card">
+
+          <div class="card-header">
+            <div>
+              <h3>Feasibility Reports</h3>
+              <p class="card-description">
+                Bank-ready reports generated by GraminSaathi AI
+              </p>
+            </div>
+
+            <button class="primary-button" onclick="downloadReport()">
+              Download Report
+            </button>
+          </div>
+
+          <div class="report-card searchable">
+            <div>
+              <h3>Dairy Unit Feasibility Report</h3>
+              <p>Rampur Block • Generated today • Score: 72%</p>
+            </div>
+
+            <span class="status-badge green">Recommended</span>
+          </div>
+
+          <div class="report-card searchable">
+            <div>
+              <h3>Tailoring and Garment Unit</h3>
+              <p>Rampur Block • Generated yesterday • Score: 66%</p>
+            </div>
+
+            <span class="status-badge yellow">Review Required</span>
+          </div>
+
+          <div class="report-card searchable">
+            <div>
+              <h3>Small Food Processing Unit</h3>
+              <p>District-level estimate • Generated 3 days ago • Score: 78%</p>
+            </div>
+
+            <span class="status-badge green">Recommended</span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Schemes Section -->
+      <section class="page" id="schemes">
+
+        <div class="card">
+
+          <div class="card-header">
+            <div>
+              <h3>Government Scheme Matching</h3>
+              <p class="card-description">
+                Schemes recommended according to project profile
+              </p>
+            </div>
+
+            <span class="status-badge blue">
+              AI + Rule Engine
+            </span>
+          </div>
+
+          <div class="scheme-grid">
+
+            <div class="scheme-card searchable">
+              <h3>PMEGP</h3>
+              <p class="card-description">
+                Prime Minister's Employment Generation Programme
+              </p>
+
+              <div class="financial-list">
+
+                <div class="financial-row">
+                  <span>Match Score</span>
+                  <strong class="success-text">92%</strong>
+                </div>
+
+                <div class="financial-row">
+                  <span>Suitable For</span>
+                  <strong>New Micro Enterprises</strong>
+                </div>
+
+                <div class="financial-row">
+                  <span>Recommendation</span>
+                  <strong>Highly Suitable</strong>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="scheme-card searchable">
+              <h3>MUDRA Loan</h3>
+              <p class="card-description">
+                Micro Units Development and Refinance Agency
+              </p>
+
+              <div class="financial-list">
+
+                <div class="financial-row">
+                  <span>Match Score</span>
+                  <strong class="success-text">84%</strong>
+                </div>
+
+                <div class="financial-row">
+                  <span>Suitable For</span>
+                  <strong>Small Business Expansion</strong>
+                </div>
+
+                <div class="financial-row">
+                  <span>Recommendation</span>
+                  <strong>Suitable</strong>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Settings Section -->
+      <section class="page" id="settings">
+
+        <div class="card">
+
+          <div class="card-header">
+            <div>
+              <h3>Application Settings</h3>
+              <p class="card-description">
+                Customize your GraminSaathi AI experience
+              </p>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <h3>Dark Mode</h3>
+              <p>Use a darker interface for low-light environments.</p>
+            </div>
+
+            <div class="switch" id="darkSwitch"></div>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <h3>Multilingual Recommendations</h3>
+              <p>Show explanations in English, Hindi and regional languages.</p>
+            </div>
+
+            <div class="switch active"></div>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <h3>Voice-Friendly Interface</h3>
+              <p>Enable voice-based input for low digital literacy users.</p>
+            </div>
+
+            <div class="switch active"></div>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <h3>Data Transparency Tags</h3>
+              <p>Show source information beside recommendations.</p>
+            </div>
+
+            <div class="switch active"></div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
